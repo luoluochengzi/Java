@@ -793,6 +793,9 @@ public class HelloWorld {
             int[] arr = {1, 2, 3};
             System.out.println(arr[3]);
         } catch (ArrayIndexOutOfBoundsException e) {
+            //e.printStackTrace();//未来可以将错误用页面弹出
+            //System.out.println(e.getMessage());//返回出现异常的原因
+            System.out.println(e.toString());//异常的简略信息
             System.out.println("数组越界");
         }
 
