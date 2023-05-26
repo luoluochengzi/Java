@@ -1,5 +1,7 @@
 package com.test1;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.*;
 /*
 整数 byte short int long
@@ -11,7 +13,7 @@ import java.util.*;
 */
 
 public class HelloWorld {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ParseException {
 
         System.out.println("--自增自减");
         //自增自减
@@ -741,13 +743,23 @@ public class HelloWorld {
 
         System.out.println("--自动装箱和开箱");
         /*装箱：把基本数据类型转换为对应的包装类类型
-        * 拆箱：把包装类类型转换成对应的基本数据类型*/
-        //装箱
+         * 拆箱：把包装类类型转换成对应的基本数据类型*/
+        /*//装箱
         Integer i = Integer.valueOf(100);
         //自动装箱
         Integer ii = 100;
         //自动拆箱后自动装箱
-        ii += 200;//ii = ii.intValue() + 200;
+        ii += 200;//ii = ii.intValue() + 200;*/
+
+        System.out.println("--日期类");
+        Date date = new Date();
+        System.out.println("当前系统时间：" + date);//Fri May 26 15:14:42 CST 2023
+        System.out.println("时间戳：" + date.getTime());
+        SimpleDateFormat sd = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        //将日期转化成String
+        System.out.println("将日期转化成String: " + sd.format(date));
+        //将String转化成Date
+        System.out.println("将String转化成Date: "+ sd.parse(sd.format(date)));
 
 
     }
