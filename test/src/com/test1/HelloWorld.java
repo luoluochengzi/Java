@@ -757,9 +757,34 @@ public class HelloWorld {
         System.out.println("时间戳：" + date.getTime());
         SimpleDateFormat sd = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         //将日期转化成String
-        System.out.println("将日期转化成String: " + sd.format(date));
+        System.out.println("将日期转化成String: "
+                + sd.format(date.getTime()));
         //将String转化成Date
-        System.out.println("将String转化成Date: "+ sd.parse(sd.format(date)));
+        //System.out.println("将String转化成Date: " + sd.parse(sd.format(date)));
+        //创建类DateUtils
+        System.out.println("获取当前系统时间："
+                + DateUtils.getSystemTime());
+        System.out.println("获取当前系统时间-自定义格式："
+                + DateUtils.getSystemTime("yyyy年MM月dd日"));
+        System.out.println("将时间转换成时间戳毫秒："
+                + DateUtils.stringToDate("2023-05-26 16:19:00",
+                "yyyy-MM-dd HH:mm:ss"));
+        //Calendar日历类
+        Calendar c = Calendar.getInstance();
+        System.out.println(c.get(Calendar.YEAR) + "年"
+                + (c.get(Calendar.MONTH) + 1) + "月"
+                + c.get(Calendar.DATE) + "日");
+        //Calendar日历类常用方法
+        //加6天
+        c.add(Calendar.DATE, 6);
+        System.out.println(c.get(Calendar.YEAR) + "年"
+                + (c.get(Calendar.MONTH) + 1) + "月"
+                + c.get(Calendar.DATE) + "日");
+        //直接设置日期,月是从0开始的
+        c.set(2024,11,12);
+        System.out.println(c.get(Calendar.YEAR) + "年"
+                + (c.get(Calendar.MONTH) + 1) + "月"
+                + c.get(Calendar.DATE) + "日");
 
 
     }
