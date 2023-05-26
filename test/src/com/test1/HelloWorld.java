@@ -742,6 +742,13 @@ public class HelloWorld {
         System.out.println("--自动装箱和开箱");
         /*装箱：把基本数据类型转换为对应的包装类类型
         * 拆箱：把包装类类型转换成对应的基本数据类型*/
+        //装箱
+        Integer i = Integer.valueOf(100);
+        //自动装箱
+        Integer ii = 100;
+        //自动拆箱后自动装箱
+        ii += 200;//ii = ii.intValue() + 200;
+
 
     }
 
