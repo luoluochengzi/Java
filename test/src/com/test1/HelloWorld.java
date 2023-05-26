@@ -752,7 +752,7 @@ public class HelloWorld {
         ii += 200;//ii = ii.intValue() + 200;*/
 
         System.out.println("--日期类");
-        Date date = new Date();
+        /*Date date = new Date();
         System.out.println("当前系统时间：" + date);//Fri May 26 15:14:42 CST 2023
         System.out.println("时间戳：" + date.getTime());
         SimpleDateFormat sd = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -784,7 +784,17 @@ public class HelloWorld {
         c.set(2024,11,12);
         System.out.println(c.get(Calendar.YEAR) + "年"
                 + (c.get(Calendar.MONTH) + 1) + "月"
-                + c.get(Calendar.DATE) + "日");
+                + c.get(Calendar.DATE) + "日");*/
+        System.out.println("--异常");
+        /*如果程序出现了问题，我们没有做任何处理，最终JVM会做默认处理
+         * 把异常的名称，异常原因以及异常出现的位置等信息输出在控制台，程序停止执行
+         * 异常处理：try{可能出现异常的代码;}catch(异常类名，变量名){异常的处理代码;}*/
+        try {
+            int[] arr = {1, 2, 3};
+            System.out.println(arr[3]);
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("数组越界");
+        }
 
 
     }
