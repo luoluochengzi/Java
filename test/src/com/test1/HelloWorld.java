@@ -13,7 +13,7 @@ import java.util.*;
 */
 
 public class HelloWorld {
-    public static void main(String[] args) throws ParseException {
+    public static void main(String[] args) {
 
         System.out.println("--自增自减");
         //自增自减
@@ -789,15 +789,54 @@ public class HelloWorld {
         /*如果程序出现了问题，我们没有做任何处理，最终JVM会做默认处理
          * 把异常的名称，异常原因以及异常出现的位置等信息输出在控制台，程序停止执行
          * 异常处理：try{可能出现异常的代码;}catch(异常类名，变量名){异常的处理代码;}*/
-        try {
+        /*try {
             int[] arr = {1, 2, 3};
             System.out.println(arr[3]);
         } catch (ArrayIndexOutOfBoundsException e) {
+            //Throwable成员方法
             //e.printStackTrace();//未来可以将错误用页面弹出
             //System.out.println(e.getMessage());//返回出现异常的原因
             System.out.println(e.toString());//异常的简略信息
             System.out.println("数组越界");
+        }*/
+        System.out.println("--编译是异常和运行是异常的区别");
+        /*Java中的异常被分为两大类，编译时异常和运行时异常，也被称为受检异常和非受检异常
+        * 所有的RuntimeException类及其子类的实例被称为运行时异常，其他的异常都是编译时异常
+        * 编译时异常，必须显示处理，否则程序就会发生错误，无法通过编译
+        * 运行时异常，无需显示处理，也可以和编译时异常一样处理*/
+        //编译时异常
+        /*Date date1 = new Date();
+        try {
+            date1 = new SimpleDateFormat("yyyy-MM-dd").parse("2023-05-16");
+        } catch (ParseException e) {
+            e.printStackTrace();
         }
+        System.out.println(date1);*/
+
+        System.out.println("--异常处理之throws");
+        /*当出现没有权限处理的异常时可以用throws处理
+        * 格式：throw 异常类名; 这个格式是跟在方法的括号后面的
+        * public 类名 throw 异常类名 抛出异常，不解决，谁调用谁解决*/
+
+        System.out.println("--自定义异常");
+        //0-100打分测试
+        /*Scanner sc = new Scanner(System.in);
+        System.out.println("请输入分数(注意只能输入0-100)：");
+        int score = sc.nextInt();
+        try {
+            privateExceptionTest.checkScore(score);
+        } catch (privateException e) {
+            e.printStackTrace();//privateException继承了Exception 所以可以使用
+        }*/
+        /*throws 和 throw 的区别
+        * throws
+        * 用在方法声明后面，跟的是异常类名
+        * 表示抛出异常，由该方法的调用者处理
+        * 表示出现异常的一种可能性，并不一定会发生这些异常
+        * throw
+        * 用在方法体内，跟的是异常对象名
+        * 表示抛出异常，由方法体内的语句处理
+        * 执行throw一定抛出了某种异常*/
 
 
     }
