@@ -838,6 +838,30 @@ public class HelloWorld {
         * 表示抛出异常，由方法体内的语句处理
         * 执行throw一定抛出了某种异常*/
 
+        System.out.println("--集合进阶");
+        /*Collection 单列集合--List集合(可以重复)--Set(不可重复)
+        * List集合中包含（ArrayList，LinkedList）等
+        * Set集合中包含（HashSet，TreeSet）等
+        * Map 双列集合--HashMap
+        * Collection常用方法
+        * add()添加,remove()删除某元素,clear()清空,contains()判断是否存在,
+        * isEmpty()判断是否为空,size()长度，元素个数
+        * Alt + 7 可以看到所以有方法的结构
+        * Collection<String> c = new ArrayList<String>();
+        c.add("hhhh");
+        System.out.println(c);
+        * Iterator :迭代器，集合的的专用遍历方式
+        * Iterartor<E> iterator(): 返回此集合中元素的迭代器，
+        * 常用方法：next():返回迭代中的下一个元素
+        * hasnext():如果迭代具有更多元素，则返回true
+        * Collection<String> c = new ArrayList<String>();
+        c.add("hhhh");
+        Iterator<String> it = c.iterator();
+        System.out.println(it.hasNext());
+        System.out.println(it.next());*/
+
+
+
 
     }
 
