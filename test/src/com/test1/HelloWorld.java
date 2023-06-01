@@ -860,6 +860,89 @@ public class HelloWorld {
         System.out.println(it.hasNext());
         System.out.println(it.next());*/
 
+        System.out.println("--List集合特点");
+        /*特点：有序，存储和取出的元素顺序一致
+        * 可以重复，存储的元素可以重复
+        * List<String> li = new ArrayList<String>();
+        li.add("hhhh");
+        Iterator<String> it = li.iterator();
+        it.hasNext();
+        it.next();*/
+
+        System.out.println("--并发修改异常");
+        /*List<String> li = new ArrayList<String>();
+        li.add("hhhh");
+        li.add("h22");
+        Iterator<String> it = li.iterator();
+        //ConcurrentModificationException
+        //当不允许这样的修改是，可以通过检测到对象的并发修改的方法来抛出此异常
+        while (it.hasNext()){
+            String s = it.next();
+            //每次next都会去核对预期的次数和实际的次数，中途增加了元素导致不一致就会报错
+            //改写成for循环，改成get就可以了
+            if (s.equals("hhhh")) {
+                li.add("hahah");
+            }
+        }
+        System.out.println(li);*/
+
+        System.out.println("--列表迭代器");
+        /*ListIterator: 列表迭代器
+        * 通过List集合的listiterator()方法的刀，所有说它是List集合特有的迭代器
+        * 用于允许程序员沿任意方向遍历列表的列表迭代器，在迭代期间修改列表，并获取列表中迭代器的当前位置
+        * Listiterator常用方法
+        * E next()：返回迭代中的下一个元素
+        * boolean hasNext():如果迭代中具有更多元素，返回true
+        * E previous():返回列表中的上一个元素
+        * Boolean hasPrevious(): 如果此列表迭代器在相反方向遍历列表是有元素，则返回true
+        * void add(E e):将指定元素插入列表
+        * List<String> li = new ArrayList<String>();
+        li.add("hhhh");
+        li.add("h22");
+        ListIterator<String> it = li.listIterator();
+        while (it.hasNext()){
+            String s = it.next();
+            //每次next都会去核对预期的次数和实际的次数，中途增加了元素导致不一致就会报错
+            //但是ListIterator每次add会把实际值赋值给预期值
+            if (s.equals("hhhh")) {
+                li.add("hahah");
+            }
+        }
+        System.out.println(li);*/
+
+        System.out.println("--增强for循环");
+        /*int[] arr = {1,2,3,4,5};
+        for(int i :arr){//内部实际上是Iterator迭代器，需要考虑并发修改异常
+            System.out.println(i);
+        };*/
+        System.out.println("--常见数据结构");
+        /*常见数据结构模型栈：数据进入栈的过程被称为进栈，反之出栈，栈是先进后出的模型
+        * 常见数据结构模型队列：数据从后端进入，从前端离开，也可以称之为入队列和出队列，队列是先进先出的模型
+        * 常见数据结构数组：查询数据通过索引定位，查询任意数据耗时相同，查询效率快
+        * 删除数据时，将原始数据删除，同时后面每个数据前移，删除效率低
+        * 添加数据时，添加位置后的每个数据后移，再添加元素，添加效率极低
+        * 数组是一种查询快，添加删除慢的模型
+        * 常见数据结构链表，链表开始有个链表头head，包含一个数据以及下一个数据的地址值，
+        * 每一个数据都包含下一个数据的地址值，由此依次相连
+        * 链表对比数组来说是一个增删快的模型，查询慢。每次查询都需要从头head开始*/
+
+        System.out.println("--List集合子类特点");
+        /*List集合常用子类：ArrayList，LinkedList
+        * ArrayList：底层数据结构是数组，查询快，增删慢
+        * LinkedList：底层数据结构是链表，查询慢，增删快*/
+        System.out.println("--Set集合概述和特点");
+        /*Set集合特点--hashset:对集合的迭代顺序不作任何保证
+        * 不包含重复元素的集合
+        * 没有带索引的方法，所以不能使用普通for循环遍历
+        * Set<String> st = new HashSet<String>();
+        st.add("yzw");
+        st.add(null);
+        st.add(null);//不包含重复元素
+        st.add("hj");
+        st.add("hj");//不包含重复元素
+        for(String s : st){
+            System.out.println(s);
+        }*/
 
 
 
