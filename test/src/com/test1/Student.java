@@ -1,29 +1,39 @@
 package com.test1;
 
-public class Student {
+public class Student implements Comparable<Student> {
     private String name;
 
-    private String age;
-    public Student(){};
+    private int age;
 
-    public Student(String name,String age){
+    public Student() {
+    }
+
+    public Student(String name, int age) {
         this.name = name;
         this.age = age;
     }
 
-    public void setName(String name){
+    public void setName(String name) {
         this.name = name;
     }
 
-    public String getName(){
+    public String getName() {
         return name;
     }
 
-    public void setAge(String age){
+    public void setAge(int age) {
         this.age = age;
     }
 
-    public String getAge(){
+    public int getAge() {
         return age;
+    }
+
+    @Override
+    public int compareTo(Student s) {
+        //按照年龄从小到大排序，年龄相同时，按照姓名的字母顺序排序
+        int num = this.age - s.age;
+        int num2 = num == 0 ? this.name.compareTo(s.name) : num;
+        return num2;
     }
 }

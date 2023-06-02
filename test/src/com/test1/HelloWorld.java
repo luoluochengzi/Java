@@ -801,9 +801,9 @@ public class HelloWorld {
         }*/
         System.out.println("--编译是异常和运行是异常的区别");
         /*Java中的异常被分为两大类，编译时异常和运行时异常，也被称为受检异常和非受检异常
-        * 所有的RuntimeException类及其子类的实例被称为运行时异常，其他的异常都是编译时异常
-        * 编译时异常，必须显示处理，否则程序就会发生错误，无法通过编译
-        * 运行时异常，无需显示处理，也可以和编译时异常一样处理*/
+         * 所有的RuntimeException类及其子类的实例被称为运行时异常，其他的异常都是编译时异常
+         * 编译时异常，必须显示处理，否则程序就会发生错误，无法通过编译
+         * 运行时异常，无需显示处理，也可以和编译时异常一样处理*/
         //编译时异常
         /*Date date1 = new Date();
         try {
@@ -815,8 +815,8 @@ public class HelloWorld {
 
         System.out.println("--异常处理之throws");
         /*当出现没有权限处理的异常时可以用throws处理
-        * 格式：throw 异常类名; 这个格式是跟在方法的括号后面的
-        * public 类名 throw 异常类名 抛出异常，不解决，谁调用谁解决*/
+         * 格式：throw 异常类名; 这个格式是跟在方法的括号后面的
+         * public 类名 throw 异常类名 抛出异常，不解决，谁调用谁解决*/
 
         System.out.println("--自定义异常");
         //0-100打分测试
@@ -829,14 +829,14 @@ public class HelloWorld {
             e.printStackTrace();//privateException继承了Exception 所以可以使用
         }*/
         /*throws 和 throw 的区别
-        * throws
-        * 用在方法声明后面，跟的是异常类名
-        * 表示抛出异常，由该方法的调用者处理
-        * 表示出现异常的一种可能性，并不一定会发生这些异常
-        * throw
-        * 用在方法体内，跟的是异常对象名
-        * 表示抛出异常，由方法体内的语句处理
-        * 执行throw一定抛出了某种异常*/
+         * throws
+         * 用在方法声明后面，跟的是异常类名
+         * 表示抛出异常，由该方法的调用者处理
+         * 表示出现异常的一种可能性，并不一定会发生这些异常
+         * throw
+         * 用在方法体内，跟的是异常对象名
+         * 表示抛出异常，由方法体内的语句处理
+         * 执行throw一定抛出了某种异常*/
 
         System.out.println("--集合进阶");
         /*Collection 单列集合--List集合(可以重复)--Set(不可重复)
@@ -917,19 +917,24 @@ public class HelloWorld {
         };*/
         System.out.println("--常见数据结构");
         /*常见数据结构模型栈：数据进入栈的过程被称为进栈，反之出栈，栈是先进后出的模型
-        * 常见数据结构模型队列：数据从后端进入，从前端离开，也可以称之为入队列和出队列，队列是先进先出的模型
-        * 常见数据结构数组：查询数据通过索引定位，查询任意数据耗时相同，查询效率快
-        * 删除数据时，将原始数据删除，同时后面每个数据前移，删除效率低
-        * 添加数据时，添加位置后的每个数据后移，再添加元素，添加效率极低
-        * 数组是一种查询快，添加删除慢的模型
-        * 常见数据结构链表，链表开始有个链表头head，包含一个数据以及下一个数据的地址值，
-        * 每一个数据都包含下一个数据的地址值，由此依次相连
-        * 链表对比数组来说是一个增删快的模型，查询慢。每次查询都需要从头head开始*/
+         * 常见数据结构模型队列：数据从后端进入，从前端离开，也可以称之为入队列和出队列，队列是先进先出的模型
+         * 常见数据结构数组：查询数据通过索引定位，查询任意数据耗时相同，查询效率快
+         * 删除数据时，将原始数据删除，同时后面每个数据前移，删除效率低
+         * 添加数据时，添加位置后的每个数据后移，再添加元素，添加效率极低
+         * 数组是一种查询快，添加删除慢的模型
+         * 常见数据结构链表，链表开始有个链表头head，包含一个数据以及下一个数据的地址值，
+         * 每一个数据都包含下一个数据的地址值，由此依次相连
+         * 链表对比数组来说是一个增删快的模型，查询慢。每次查询都需要从头head开始
+         * 常见数据结构之哈希表：
+         * JDK8之前，底层采用数组+链表实现，可以说是一个元素为链表的数组
+         * JDK8以后，在长度比较长的时候，底层实现了优化
+         * 哈希表Hashset默认是容量是16的数组，算出哈希值后除以16取余 放置在存储位置中
+         * 在同一个存储位置上又是按照链表的形式判断存储*/
 
         System.out.println("--List集合子类特点");
         /*List集合常用子类：ArrayList，LinkedList
-        * ArrayList：底层数据结构是数组，查询快，增删慢
-        * LinkedList：底层数据结构是链表，查询慢，增删快*/
+         * ArrayList：底层数据结构是数组，查询快，增删慢
+         * LinkedList：底层数据结构是链表，查询慢，增删快*/
         System.out.println("--Set集合概述和特点");
         /*Set集合特点--hashset:对集合的迭代顺序不作任何保证
         * 不包含重复元素的集合
@@ -943,6 +948,86 @@ public class HelloWorld {
         for(String s : st){
             System.out.println(s);
         }*/
+        System.out.println("--哈希值");
+        /*哈希值：是JDk根据对象的地址或者字符串或者数字算出来的int类型的数值
+         * object类中有一个方法可以获取对象的哈希值
+         * public int hashCode():返回对象的哈希码值
+         * 默认情况下，不同对象的哈希值是不相同的
+         * 可以通过方法的重写，实现不同对象的哈希值是一致的*/
+        System.out.println("--HashSet集合保证元素唯一性源码");
+        /*HashSet集合添加元素的过程：
+         * 1.通过调用对象的hashcode方法获取对象的哈希值
+         * 2.根据对象的哈希值计算对象的存储位置
+         * 3.判断该位置是否存在元素，如果没有直接将新元素存储在该位置
+         * 4.存在则遍历该位置的所有元素，和新存入的元素比较哈希值是否相同，都不相同则直接添加
+         * 5.如果存在相同的则调用equals方法比较对象是否相同，如果相同则不存储，不同则添加新元素
+         * 在案例HashSet集合存储学生对象并遍历中避免重复，需要重写学生类中的hashcode和equals*/
+
+        System.out.println("--LinkedHashSet集合概述和特点");
+        /*LinkedHashSet集合特点
+         * 哈希表和链表实现的set接口，具有可预测的迭代次序
+         * 有链表保证元素有序，也就是说元素的存储和取出顺序是一致的
+         * 由哈希表保证元素唯一，也就是说没有重复的元素
+         * LinkedHashSet<String> linkedHashSet = new LinkedHashSet<String>();
+        linkedHashSet.add("hhh");
+        linkedHashSet.add("aaaa");
+        linkedHashSet.add("asda");
+        for (String s :
+                linkedHashSet) {
+            System.out.println(s);
+        }*/
+        System.out.println("--TreeSet集合概述和特点");
+        /*TreeSet集合特点
+         * 元素有序，这里是按照一定的规则进行排序，排序方式取决于构造方法
+         * TreeSet():根据其元素的自然排序进行排序
+         * TreeSet(Comparator comparatot)：根据指定的比较器进行排序
+         * 没有带索引的方法，所以不能用普通的for循环遍历
+         * 由于是Set集合，所以不包含重复元素*/
+        System.out.println("--自然排序Comparable的使用");
+        /*存储学生对象并遍历，创建TreeSet集合使用无参构造方法
+        * 要求：按照年龄从小到大排序，年龄相同时，按照姓名的字母顺序排序
+        * 学生对象需要实现Comparable接口并重写CompareTo方法
+        * 方法返回0，则只存储一个元素，正数这按照存储顺序，负责则相反
+        * 思考：其实就是两两比较，新数减旧数，负数则新数在旧数前
+        * TreeSet<Student> ts = new TreeSet<Student>();
+        Student s1 = new Student("yzw",26);
+        Student s2 = new Student("yzw",25);
+        Student s3 = new Student("hj",27);
+        Student s4 = new Student("hj",25);
+        ts.add(s1);
+        ts.add(s2);
+        ts.add(s3);
+        ts.add(s4);
+        for (Student s :
+                ts) {
+            System.out.println(s.getName()+","+s.getAge());
+        }*/
+
+        System.out.println("--比较器排序Comparable的使用");
+        /*存储学生对象并遍历，创建TreeSet集合使用带参构造方法
+         * 要求：按照年龄从小到大排序，年龄相同时，按照姓名的字母顺序排序
+         * //匿名内部类
+        TreeSet<Student> ts = new TreeSet<Student>(new Comparator<Student>() {
+            @Override
+            public int compare(Student s1, Student s2) {
+                int num = s1.getAge() - s2.getAge();
+                int num2 = num == 0 ? s1.getName().compareTo(s2.getName()) : num;
+                return num2;
+            }
+        });
+        Student s1 = new Student("yzw", 26);
+        Student s2 = new Student("yzw", 25);
+        Student s3 = new Student("hj", 27);
+        Student s4 = new Student("hj", 25);
+        ts.add(s1);
+        ts.add(s2);
+        ts.add(s3);
+        ts.add(s4);
+        for (Student s :
+                ts) {
+            System.out.println(s.getName() + "," + s.getAge());
+        }*/
+
 
 
 
