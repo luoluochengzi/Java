@@ -1028,8 +1028,69 @@ public class HelloWorld {
             System.out.println(s.getName() + "," + s.getAge());
         }*/
 
+        System.out.println("--案例，10个不重复的随机数");
+        /*//创建随机数对象
+        Random ra = new Random();
+        //创建hashset集合
+        Set<Integer> st= new HashSet<Integer>();
+        while (st.size() < 10 ){
+            st.add(ra.nextInt(20)+1);
+        }
+        for (Integer i :
+                st) {
+            System.out.println(i);
+        }*/
+        System.out.println("--泛型");
+        /*泛型：jdk5中引入的特性，该机制允许在编译时检测到非法的类型
+         * 他本质是参数化类型，也就是说所操作的数据类型被指定为一个参数
+         * 将类型由原来的具体类型参数化，然后在使用或调用时传入具体的类型
+         * 这种参数类型可以用在类，方法和接口中，
+         * 分别被称为泛型类，泛型方法，泛型接口
+         * 泛型的定义格式：
+         * <类型>：指定一种类型的格式，这里的类型可以看成形参
+         * <类型1，类型2.。。>：指定多种类型的格式，多种类型之间用逗号隔开，这里的类型可以看成是形参
+         * 将来具体调用时候给定的类型可以看成是实参，并且实参的类型只能是引用数据类型
+         * 泛型的好处：
+         * 把运行时期的问题提前到了编译期间
+         * 避免了强制类型转换*/
+        System.out.println("--泛型类");
+        /*泛型类格式：public FanXin<T>{}
+         * 此处T可以随便写成为任意标识，常见的如T,E,K,V等形式的参数常用于表示泛型*/
 
+        System.out.println("--泛型方法");
+        /*泛型方法格式：public <T> void show(T t){}*/
+        System.out.println("--泛型接口");
+        /*泛型接口的定义格式：public interface 泛型名<T>{}*/
 
+        System.out.println("--类型通配符");
+        /*为了表示各种泛型list的父类，可以使用类型统配符
+        * 类型通配符：<?>
+        list<?>:表示元素类型未知的list，他的元素可以匹配任何的类型
+        * 这种带通配符的list仅表示他是各种泛型list的父亲，并不能把元素添加到其中
+        * 如果说我们不希望list<?>是任何泛型list的父类，只希望他代表一类泛型list的父类，可以使用类型通配符的上限
+        * 类型通配符上限：<?extends类型>
+        list<?extends Number>：他表示的类型是Number或其子类型
+        * 处理可以指定类型通配符的上限，我们也可以指定类型通配符的下限
+        * 类型通配符下限<?super类型>
+        list<?super Number>:他表示的类型是Number或者其父类型
+        * 例子：
+        * List<?> l1 = new ArrayList<Objects>();
+        List<?> l2 = new ArrayList<Number>();
+        List<?> l3 = new ArrayList<Integer>();
+        //上限
+        List<? extends Number> l5 = new ArrayList<Integer>();
+        List<? extends Number> l6 = new ArrayList<Number>();
+        //下限
+        List<? super Number> l7 = new ArrayList<Number>();
+        List<? super Number> l8 = new ArrayList<Object>();*/
+
+        System.out.println("--可变参数");
+        /*修饰符 返回值类型 方法名(数据类型...变量名){}
+         * 范例：public static int sum(int...a){}
+         * 或者public static int sum(int b ,int...a){}
+         * System.out.println(sum(1,2,3,4,5,6,7,8,9,10));
+         * 可变参数实际是一个数组，如果包含多个参数，可变参数要放在最后*/
+        List<String> list = List.of("yzw", "hj", "yyy");
 
     }
 
@@ -1135,6 +1196,15 @@ public class HelloWorld {
         }
         sb.append("]");
         return sb.toString();
+    }
+
+    //可变参数个数，int求和
+    public static int sum(int... a) {
+        int b = 0;
+        for (int c : a) {
+            b += c;
+        }
+        return b;
     }
 }
 
