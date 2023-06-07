@@ -1089,8 +1089,152 @@ public class HelloWorld {
          * 范例：public static int sum(int...a){}
          * 或者public static int sum(int b ,int...a){}
          * System.out.println(sum(1,2,3,4,5,6,7,8,9,10));
-         * 可变参数实际是一个数组，如果包含多个参数，可变参数要放在最后*/
-        List<String> list = List.of("yzw", "hj", "yyy");
+         * 可变参数实际是一个数组，如果包含多个参数，可变参数要放在最后
+         * List<String> list = List.of("yzw", "hj", "yyy");*/
+
+        System.out.println("--Map集合概述和使用");
+        /*Map集合概述
+         * Interface Map<K,V> K:键的类型;V: 值的类型
+         * 将键映射到值的对象，不能包含重复的键，每个键可以映射到最多一个值
+         * 当键第二次出现，相当于更新
+         * V put(K,V):添加元素
+         * V remover(Object key):根据键删除键值对元素
+         * void clear():移除所有的键值对元素
+         * boolean containsKey(Object key):判断集合中是否包含指定的键
+         * boolean containsValue(Object value):判断集合中是否包含指定的值
+         * boolean isEmpty():判断集合是否为空
+         * int size():集合的长度，也就是集合中键值对的个数
+         * V get(Object key):根据键获取值
+         * Set<K>keySet():获取所有键的集合
+         * Collection<V>values():获取所有值的集合
+         * Set<Map.Entry<K,V>>entrySet():获取所有键值对对象的集合
+         * Map<String, String> ma = new HashMap<String, String>();
+        ma.put("001", "yzw");
+        ma.put("001", "hj");//更新
+        ma.put("002", "yzw");
+        ma.put("003", "yzwlovehj");
+        System.out.println(ma);
+        System.out.println(ma.get("001"));
+        System.out.println(ma.get("000"));//如果键不存在，返回null
+        Set<String> keySet = ma.keySet();
+        for (String s :
+                keySet) {
+            System.out.println(s);
+        }
+        Collection<String> values = ma.values();
+        for (String s :
+                values) {
+            System.out.println(s);
+        }
+        //Set<Map.Entry<K,V>>entrySet()
+        Set<Map.Entry<String, String>> kv = ma.entrySet();
+        System.out.println("获取所有键值对对象的集合:" + kv);
+        for (Map.Entry<String, String> s : kv) {
+            System.out.println(s.getKey());
+            System.out.println(s.getValue());
+        }*/
+        System.out.println("--案例，HashMap集合存储学生对象并遍历");
+        /*创建HashMap集合，键是学生对象，值是居住地，存储多个键值对元素，并遍历
+         * 要求保证键的唯一性：如果学生对象的成员变量值相同，我们就认为是同一个对象
+         * HashMap<Student, String> map = new HashMap<Student, String>();
+        Student s1 = new Student("yzw", 26);
+        Student s2 = new Student("hj", 26);
+        Student s3 = new Student("yzw", 27);
+        Student s4 = new Student("yzw", 26);
+        map.put(s1, "beijing");
+        map.put(s2, "shanghai");
+        map.put(s3, "xiamen");
+        map.put(s4, "nanchang");
+        for (Student s : map.keySet()) {
+            System.out.println("学生姓名：" + s.getName() +
+                    ",学生年龄：" + s.getAge() +
+                    ",学生居住地：" + map.get(s));
+        }*/
+        System.out.println("--案例，ArraryList集合存储HashMap元素并遍历");
+        /*ArrayList<HashMap<Student, String>> arr =
+                new ArrayList<HashMap<Student, String>>();
+        //第一个元素
+        HashMap<Student, String> map1 = new HashMap<Student, String>();
+        Student s1 = new Student("yzw", 26);
+        Student s2 = new Student("hj", 26);
+        Student s3 = new Student("yzw", 27);
+        Student s4 = new Student("yzw", 26);
+        map1.put(s1, "beijing");
+        map1.put(s2, "shanghai");
+        map1.put(s3, "xiamen");
+        map1.put(s4, "nanchang");
+        arr.add(map1);
+        //第二个元素
+        HashMap<Student, String> map2 = new HashMap<Student, String>();
+        Student s5 = new Student("yzw2", 26);
+        Student s6 = new Student("hj2", 26);
+        Student s7 = new Student("yzw2", 27);
+        Student s8 = new Student("yzw2", 26);
+        map2.put(s5, "beijing");
+        map2.put(s6, "shanghai");
+        map2.put(s7, "xiamen");
+        map2.put(s8, "nanchang");
+        arr.add(map2);
+        System.out.println(arr);
+        //遍历ArrayList集合
+        for (HashMap<Student, String> s :
+                arr) {
+            for (Student st :
+                    s.keySet()) {
+                System.out.println("这是第" + arr.indexOf(s) + "个元素，学生姓名：" + st.getName() +
+                        "，学生年龄：" + st.getAge() +
+                        "，学生居住地：" + s.get(st));
+            }
+        }*/
+
+        System.out.println("--案例，HashMap集合存储ArraryList元素并遍历");
+        /*创建一个HashMap集合,存储三个键值对元素，每个键值对元素的键是String 值是ArrayList,
+         * 每一个ArrayList的元素是String 并遍历
+         * //创建HashMap集合
+        HashMap<String, ArrayList<String>> map = new HashMap<String, ArrayList<String>>();
+        //创建ArrayList集合
+        ArrayList<String> arr1 = new ArrayList<>();
+        arr1.add("001-yzw");
+        arr1.add("001-hj");
+        //添加入map集合
+        map.put("001", arr1);
+        //创建ArrayList集合
+        ArrayList<String> arr2 = new ArrayList<>();
+        arr2.add("002-yzw");
+        arr2.add("002-hj");
+        //添加入map集合
+        map.put("002", arr2);
+        //遍历
+        for (Map.Entry<String, ArrayList<String>> s : map.entrySet()) {
+            for (String s1 : s.getValue()) {
+                System.out.println(s.getKey() + "," + s.getValue() +
+                        "解析遍历：" + s1);
+            }
+
+        }*/
+
+        System.out.println("--案例统计字符串中每个字符出现的次数");
+        /*例如键盘输入 asdasdasdas 返回 a(?)s(?)d(?)
+        * Scanner sc = new Scanner(System.in);
+        System.out.println("请输入你要统计的字符串：");
+        String ca = sc.nextLine();
+        //创建HashMap集合
+        HashMap<Character, Integer> hashMap = new HashMap<>();
+        //循环输入字符串，如果在hashmap中不存在则值为1，存在则加1
+        for (int i = 0; i < ca.length(); i++) {
+            if (hashMap.containsKey(ca.charAt(i))) {
+                hashMap.put(ca.charAt(i), hashMap.get(ca.charAt(i)) + 1);
+            } else {
+                hashMap.put(ca.charAt(i), 1);
+            }
+        }
+        //将结果遍历并输出
+        for (Map.Entry<Character, Integer> s : hashMap.entrySet()) {
+            System.out.print(s.getKey() + "(" +
+                    s.getValue() + ")");
+        }*/
+
+
 
     }
 
