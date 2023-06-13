@@ -1,5 +1,7 @@
 package com.test1;
 
+import java.io.File;
+import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -1234,8 +1236,127 @@ public class HelloWorld {
                     s.getValue() + ")");
         }*/
 
+        System.out.println("--Collections概述和使用");
+        /*Collections常用方法
+        * Collections.sort(List<T> list) : 将指定列表按照升序排序
+        * Collections.reverse(List<T> list) :反转指定列表中元素的顺序
+        * Collections.shuffle(List<T> list) : 使用默认的随机数排序指定列表
+        * List<Integer> list = new ArrayList<>();
+        list.add(10);
+        list.add(8);
+        list.add(9);
+        list.add(6);
+        list.add(3);
+        list.add(5);
+        System.out.println(list);
+        Collections.sort(list);
+        System.out.println(list);
+        Collections.reverse(list);
+        System.out.println(list);
+        Collections.shuffle(list);
+        System.out.println(list);*/
+        System.out.println("--案例，ArrayList存储学生对象并排序");
+        /*需求ArrayList存储学生对象，使用Collections对ArrayList进行排序
+         * 要求：按照年龄从小到大排序，年龄相同时，按照姓名的字母顺序排序
+         * //创建集合
+        ArrayList<Student> arr = new ArrayList<>();
+        //创建学生对象信息
+        Student s1 = new Student("yzw", 18);
+        Student s2 = new Student("hj", 18);
+        Student s3 = new Student("hj", 16);
+        Student s4 = new Student("yzw", 15);
+        //添加进集合
+        arr.add(s1);
+        arr.add(s2);
+        arr.add(s3);
+        arr.add(s4);
+        //排序
+        //方法一：Student 类中需要做Comparable
+        Collections.sort(arr);
+        //方法二：sort(List<T> list, Comparator<? super T> c)
+        Collections.sort(arr, new Comparator<Student>() {
+            @Override
+            public int compare(Student s1, Student s2) {
+                int num1 = s1.getAge() - s2.getAge();
+                int num2 = num1 == 0 ? s1.getName().compareTo(s2.getName()) : num1;
+                return num2;
+            }
+        });
+        System.out.println(arr);
+        for (Student s :
+                arr) {
+            System.out.println("学生姓名：" + s.getName() +
+                    "，学生年龄：" + s.getAge());
+        }*/
+        System.out.println("--案例，模拟斗地主");
+        /*需求：通过程序实现斗地主过程中的洗牌，发牌和看牌，看牌排序
+        * //创建牌组 54张牌，A,2,3,4,5,6,7,8,9,10,J,Q,K,joker,JOKER
+        HashMap<Integer, String> map = new HashMap<Integer, String>();
+        String[] colors = {"♦", "♣", "♥", "♠"};
+        String[] numbers = {"3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A", "2"};
+        int i = 0;
+        for (String number :
+                numbers) {
+            for (String color :
+                    colors) {
+                map.put(i, color + number);
+                i++;
+            }
+        }
+        map.put(i, "joker");
+        i++;
+        map.put(i, "JOKER");
+        System.out.println(map);
+        //将牌序号创建成数组，洗序号
+        ArrayList<Integer> arr = new ArrayList<Integer>();
+        arr.addAll(map.keySet());
+        Collections.shuffle(arr);
+        System.out.println(arr);
+        //给玩家发牌
+        TreeSet<Integer> ts = new TreeSet<>();
+        TreeSet<Integer> ts1 = new TreeSet<>();
+        TreeSet<Integer> ts2 = new TreeSet<>();
+        TreeSet<Integer> ts3 = new TreeSet<>();
+        for (int j = 0; j < arr.size(); j++) {
+            if (j >= arr.size() - 3) {
+                ts.add(arr.get(j));
+            } else if (j % 3 == 0) {
+                ts1.add(arr.get(j));
+            } else if (j % 3 == 1) {
+                ts2.add(arr.get(j));
+            } else {
+                ts3.add(arr.get(j));
+            }
+        }
+        //看牌
+        lookPojker("玩家一", ts1, map);
+        lookPojker("玩家二", ts2, map);
+        lookPojker("玩家三", ts3, map);
+        lookPojker("底牌", ts, map);*/
 
-
+        System.out.println("--File概述和使用");
+        /*File:它是文件和目录路径名的抽象表示
+        * 文件和目录是可以通过File封装成对象的
+        * 对于File而言，其封装的并不是一个真正存在的文件，仅仅是一个路径名而已，可以存在也可以不存在；
+        * 将来是要通过具体的操作把这个路径的内容转换成具体存在的内容
+        * File(File parent, String child) 从父抽象路径名和子路径名字符串创建新的 File实例。
+        File(String pathname) 通过将给定的路径名字符串转换为抽象路径名来创建新的 File实例。
+        File(String parent, String child) 从父路径名字符串和子路径名字符串创建新的 File实例。
+        * */
+        //创建文件
+        File fi1 = new File("C:\\Users\\huangjuan\\Desktop\\test.txt");
+        System.out.println(fi1);
+        try {
+            fi1.createNewFile();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        //创建目录
+        File fi2 = new File("C:\\Users\\huangjuan\\Desktop\\20230613");
+        fi2.mkdir();
+        //创建多级目录
+        File fi3 = new File("C:\\Users\\huangjuan\\Desktop\\20230614\\123\\1232");
+        fi3.mkdirs();
     }
 
     //简单的方法定义--判断奇数偶数
@@ -1350,6 +1471,21 @@ public class HelloWorld {
         }
         return b;
     }
+
+    //斗地主，玩家看牌，排序
+    public static void lookPojker(String player, TreeSet<Integer> ts, HashMap<Integer, String> map) {
+        System.out.print(player + ":");
+        for (Integer it :
+                ts) {
+            if (ts.last() == it) {
+                System.out.println(map.get(it));
+            } else {
+                System.out.print(map.get(it) + " ,");
+            }
+
+        }
+    }
+
 }
 
 
