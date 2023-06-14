@@ -1339,24 +1339,44 @@ public class HelloWorld {
         * 文件和目录是可以通过File封装成对象的
         * 对于File而言，其封装的并不是一个真正存在的文件，仅仅是一个路径名而已，可以存在也可以不存在；
         * 将来是要通过具体的操作把这个路径的内容转换成具体存在的内容
-        * File(File parent, String child) 从父抽象路径名和子路径名字符串创建新的 File实例。
-        File(String pathname) 通过将给定的路径名字符串转换为抽象路径名来创建新的 File实例。
-        File(String parent, String child) 从父路径名字符串和子路径名字符串创建新的 File实例。
-        * */
+        * //创建目录 D:\yzw\study\java_study\Project\Java_study\
+        File fi2 = new File("test\\src\\com\\myfile");
+        System.out.println(fi2.mkdir());
+        //创建多级目录
+        File fi3 = new File("test\\src\\com\\myfile");
+        System.out.println(fi3.mkdirs());
         //创建文件
-        File fi1 = new File("C:\\Users\\huangjuan\\Desktop\\test.txt");
+        File fi1 = new File("test\\src\\com\\myfile\\test.txt");
         System.out.println(fi1);
         try {
             fi1.createNewFile();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        //创建目录
-        File fi2 = new File("C:\\Users\\huangjuan\\Desktop\\20230613");
-        fi2.mkdir();
-        //创建多级目录
-        File fi3 = new File("C:\\Users\\huangjuan\\Desktop\\20230614\\123\\1232");
-        fi3.mkdirs();
+        //判断是否是目录
+        System.out.println(fi2.isDirectory());
+        //判断是否是文件
+        System.out.println(fi1.isFile());
+        //判断是否此文件是否存在
+        System.out.println(fi1.exists());
+        //返回抽象路径名路径名的绝对路径名字符串
+        File fi4 = new File("test\\src\\com\\myfile");
+        System.out.println(fi4.getAbsolutePath());
+        //将此抽象名转换为路径名字字符串
+        System.out.println(fi4.getPath());
+        //返回由此抽象路径名表示的文件或目录的名称
+        System.out.println(fi4.getName());
+        //返回此抽象路径名表示的目录中的文件和目录的名称字符串数组
+        System.out.println(fi4.list()[0]);
+        //返回此抽象路径名表示的目录中的文件和目录的file对象数组
+        for (File fi :
+                fi4.listFiles()) {
+            System.out.println(fi);
+        }
+        //删除由此抽象路径名表示的文件或目录,注意如果目录中有内容时，删除目录会失败
+        System.out.println(fi1.delete());
+        System.out.println(fi4.delete());*/
+        System.out.println("--递归");
     }
 
     //简单的方法定义--判断奇数偶数
@@ -1461,6 +1481,7 @@ public class HelloWorld {
         }
         sb.append("]");
         return sb.toString();
+
     }
 
     //可变参数个数，int求和
