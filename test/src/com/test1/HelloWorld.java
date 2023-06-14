@@ -1377,6 +1377,34 @@ public class HelloWorld {
         System.out.println(fi1.delete());
         System.out.println(fi4.delete());*/
         System.out.println("--递归");
+        /*就前面的不死神兔问题可以用递归解决
+        递归解决问题，首先就是要定义一个方法。
+        递归需要有结束的出口
+        递归出口：否侧会出现内存溢出
+        递归规则：与原问题相似的规模较小的问题
+        System.out.println(f(20));*/
+        System.out.println("--案例，递归求阶乘");
+        /*例如5的阶乘为5!
+         * System.out.println(factorial(5));*/
+        System.out.println("--案例，递归遍历目录");
+        /*给定一个路径，请通过递归完成遍历该目录下的所有内容，并把所有文件的绝对路径输出在控制台
+        * File f = new File("test\\src\\com\\");
+        getAllFilePath(f);*/
+
+    }
+
+    //给定一个路径，请通过递归完成遍历该目录下的所有内容，并把所有文件的绝对路径输出在控制台
+    public static void getAllFilePath(File f) {
+        if (f != null) {
+            //给定结束规则，没有子目录则退出
+            for (File file : f.listFiles()) {
+                if (file.isFile()) {
+                    System.out.println(file.getAbsoluteFile());
+                } else if (file.isDirectory()) {
+                    getAllFilePath(file);
+                }
+            }
+        }
     }
 
     //简单的方法定义--判断奇数偶数
@@ -1507,6 +1535,23 @@ public class HelloWorld {
         }
     }
 
+    //递归函数，n等于n-1加上n-2
+    public static int f(int n) {
+        if (n == 1 || n == 2) {
+            return 1;
+        } else {
+            return f(n - 1) + f(n - 2);
+        }
+    }
+
+    //递归求阶乘函数
+    public static int factorial(int n) {
+        if (n == 1) {
+            return 1;
+        } else {
+            return n * factorial(n - 1);
+        }
+    }
 }
 
 
